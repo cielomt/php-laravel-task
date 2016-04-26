@@ -1,0 +1,16 @@
+<?php $__env->startSection('content'); ?>
+    <h1>Articles</h1>
+
+    <hr/>
+
+    <?php foreach($articles as $article): ?>
+        <articles>
+            <h2>
+                <a href="<?php echo e(url('/articles',$article->id)); ?>"><?php echo e($article->title); ?></a>
+            </h2>
+
+            <div class="body"><?php echo e($article->body); ?></div>
+        </articles>
+    <?php endforeach; ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('general', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

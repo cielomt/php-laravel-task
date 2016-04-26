@@ -1,0 +1,19 @@
+<div class="modal fade" id="showContacts" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h2 class="modal-title" id="myModalLabel">
+                    <?php echo e($contacts->name); ?>
+
+                </h2>
+            </div>
+            <?php echo $__env->make('contacts.show', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        </div>
+    </div>
+</div>
+

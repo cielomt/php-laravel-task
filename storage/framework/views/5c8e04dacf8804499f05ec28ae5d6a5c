@@ -1,0 +1,24 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h2 class="modal-title" id="myModalLabel">
+                    Account Info
+                </h2>
+            </div>
+            <div class="modal-body">
+                <?php echo $__env->make('errors.list', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                <form class="form-horizontal" role="form">
+                    <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+                    <?php echo $__env->make('auth.form',['submitButton' => 'Save Changes'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

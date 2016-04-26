@@ -1,0 +1,25 @@
+<?php $__env->startSection('content'); ?>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2>
+                            Edit: <?php echo $contacts->name; ?>
+
+                        </h2>
+                    </div>
+                    <div class="panel-body">
+                        <?php echo $__env->make('errors.list', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                        <?php echo Form::model($contacts, ['method' => 'PATCH', 'url' =>'contacts/'.$contacts->id]); ?>
+
+                            <?php echo $__env->make('contacts.form',['submitButton' => 'Update Contact'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                        <?php echo Form::close(); ?>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('general', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,61 @@
+<?php $__env->startSection('content'); ?>
+    <script>
+        function ConfirmDelete(){
+            var x = confirm("Are you sure you want to delete?");
+            return x;
+        }
+    </script>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2><?php echo e($contacts->name); ?></h2>
+                    </div>
+                    <div class="table-responsive panel-body">
+                        <articles>
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td>Email Address:</td>
+                                    <td><?php echo e($contacts->email); ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Phone:</td>
+                                    <td><?php echo e($contacts->phone); ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Address:</td>
+                                    <td><?php echo e($contacts->address); ?></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <?php echo Form::open(['method' => 'GET', 'route'=>['contacts.edit',$contacts->id]]); ?>
+
+                                        <?php echo Form::button('<span class="glyphicon glyphicon-pencil"></span> Edit',
+                                        array('type' => 'submit','class' => 'btn btn-info')); ?>
+
+                                        <?php echo Form::close(); ?>
+
+                                    </td>
+                                    <td>
+                                        <?php echo Form::open(['method' => 'DELETE', 'route'=>['contacts.destroy',$contacts->id],
+                                        'onsubmit' => 'return ConfirmDelete()']); ?>
+
+                                        <?php echo Form::button('<span class="glyphicon glyphicon-trash"></span> Delete',
+                                        array('type' =>'submit', 'class' => 'btn btn-primary')); ?>
+
+                                        <?php echo Form::close(); ?>
+
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </articles>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('general', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

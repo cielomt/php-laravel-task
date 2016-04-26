@@ -1,0 +1,77 @@
+<?php $__env->startSection('content'); ?>
+    <h1>Account Info</h1>
+    <hr/>
+    <ul class="col-md-4 nav nav-tabs nav-stacked">
+        <li class="active"><a href="#name" data-toggle="tab" aria-expanded="true">Name</a></li>
+        <li class=""><a href="#username" data-toggle="tab" aria-expanded="false">Username</a></li>
+        <li class=""><a href="#email" data-toggle="tab" aria-expanded="true">Email</a></li>
+        <li class=""><a href="#password" data-toggle="tab" aria-expanded="false">Password</a></li>
+    </ul>
+    <div id="myTabContent" class="col-md-6 tab-content">
+        <div class="tab-pane fade active in" id="name">
+            <div class="form-group">
+                <?php echo Form::label('name', 'Name:'); ?>
+
+                <?php echo Form::text('name', Auth::user()->name, ['class' => 'form-control']); ?>
+
+            </div>
+            <div>
+                <a href="<?php echo e(route('account.edit', $user->id)); ?>" class="btn btn-info">
+                    <span class="glyphicon glyphicon-pencil"></span> Edit
+                </a>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="username">
+            <div class="form-group">
+                <?php echo Form::label('username', 'Username:'); ?>
+
+                <?php echo Form::text('username', Auth::user()->username, ['class' => 'form-control']); ?>
+
+            </div>
+            <div>
+                <a href="<?php echo e(route('account.edit', $user->id)); ?>" class="btn btn-info">
+                    <span class="glyphicon glyphicon-pencil"></span> Edit
+                </a>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="email">
+            <div class="form-group">
+                <?php echo Form::label('email', 'Email:'); ?>
+
+                <?php echo Form::text('email', Auth::user()->email, ['class' => 'form-control']); ?>
+
+            </div>
+            <div>
+                <a href="<?php echo e(route('account.edit', $user->id)); ?>" class="btn btn-info">
+                    <span class="glyphicon glyphicon-pencil"></span> Edit
+                </a>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="password">
+            <div class="form-group">
+                <?php echo Form::label('c_password', 'Current Password:'); ?>
+
+                <?php echo Form::password('c_password', ['class' => 'form-control']); ?>
+
+            </div>
+            <div class="form-group">
+                <?php echo Form::label('n_password', 'New Password:'); ?>
+
+                <?php echo Form::password('n_password', ['class' => 'form-control']); ?>
+
+            </div>
+            <div class="form-group">
+                <?php echo Form::label('confirm_password', 'Confirm New Password:'); ?>
+
+                <?php echo Form::password('confirm_password', ['class' => 'form-control']); ?>
+
+            </div>
+            <div>
+                <a href="<?php echo e(route('account.edit', $user->id)); ?>" class="btn btn-info">
+                    <span class="glyphicon glyphicon-pencil"></span> Edit
+                </a>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('general', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

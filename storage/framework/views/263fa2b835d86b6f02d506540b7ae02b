@@ -1,0 +1,19 @@
+<?php $__env->startSection('content'); ?>
+    <h1>Contacts</h1>
+    <hr/>
+    <div class="col-md-offset-10">
+        <a href="/contacts/create" class="btn btn-link" style="display:inline;color: #ffffff">
+            <span class="glyphicon glyphicon-plus-sign"></span> New
+        </a>
+    </div>
+    <hr/>
+    <?php foreach($contacts as $contact): ?>
+        <articles>
+            <h4>
+                <a href="<?php echo e(url('/contacts',$contact->id)); ?>"><?php echo e($contact->name); ?></a>
+            </h4>
+        </articles>
+    <?php endforeach; ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('general', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

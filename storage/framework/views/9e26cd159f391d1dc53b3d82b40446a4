@@ -1,0 +1,45 @@
+<?php if(Auth::guest()): ?>
+
+<?php else: ?>
+    <div class="form-group">
+        <?php echo Form::label('name', 'Name:'); ?>
+
+        <?php echo Form::text('name', Auth::user()->name, ['class' => 'form-control']); ?>
+
+    </div>
+
+    <div class="form-group">
+        <?php echo Form::label('username', 'Username:'); ?>
+
+        <?php echo Form::text('username', Auth::user()->username, ['class' => 'form-control']); ?>
+
+    </div>
+
+    <div class="form-group">
+        <?php echo Form::label('email', 'Email Address:'); ?>
+
+        <?php echo Form::text('email', Auth::user()->email, ['class' => 'form-control']); ?>
+
+    </div>
+
+    <div class="form-group">
+        <?php echo Form::label('password', 'Password:'); ?>
+
+        <?php echo Form::password(bcrypt('password'), ['class' => 'form-control']); ?>
+
+    </div>
+
+    <div class="form-group">
+        <?php echo Form::label('password_confirmation', 'Confirm Password:'); ?>
+
+        <?php echo Form::password(bcrypt('password_confirmation'), ['class' => 'form-control']); ?>
+
+    </div>
+<?php endif; ?>
+<div class="form-group">
+    <?php echo Form::submit($submitButton, ['class' => 'btn btn-primary form-inline']); ?>
+
+    <a href="<?php echo e(URL::previous()); ?>" class="btn btn-warning form-inline">
+        Cancel
+    </a>
+</div>

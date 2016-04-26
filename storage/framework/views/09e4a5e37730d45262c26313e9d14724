@@ -1,0 +1,9 @@
+<?php $__env->startSection('content'); ?>
+    <div class = "container-fluid text-center">
+        <img src="/icon.png" class="img-responsive" alt="icon">
+        <h2>Manage your contacts.</h2>
+        <h4>Create. Read. Update. Delete.</h4>
+    </div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('general', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

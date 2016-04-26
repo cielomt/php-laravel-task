@@ -1,0 +1,12 @@
+<?php $__env->startSection('content'); ?>
+
+<?php if($a == 'abbie'&& $b == 'jaz'): ?>
+	<h1>First Day with <?php echo e($b); ?> and <?php echo e($a); ?>!!!</h1>
+<?php else: ?>
+	<h1>Impostor xD !!!</h1>
+<?php endif; ?>
+
+	<p>assadasfaasffasfasasfafafafafafa</p>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('general', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
